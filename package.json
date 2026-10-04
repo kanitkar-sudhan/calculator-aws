@@ -1,0 +1,17 @@
+{
+  "name": "calculator-aws",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A static calculator deployed to AWS S3 + CloudFront with the AWS CDK.",
+  "scripts": {
+    "dev": "npm --prefix web run dev",
+    "test": "npm --prefix web run test",
+    "build": "npm --prefix web run build",
+    "synth": "npm --prefix infra run synth",
+    "deploy": "npm run build && npm --prefix infra run deploy",
+    "destroy": "npm --prefix infra run destroy",
+    "install:all": "npm --prefix web install && npm --prefix infra install",
+    "docker:dev": "docker compose up",
+    "docker:build": "docker build --target build --output type=local,dest=./web/dist ."
+  }
+}

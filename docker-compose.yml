@@ -1,0 +1,13 @@
+# Local development only - see the note at the top of the Dockerfile.
+services:
+  web:
+    build:
+      context: .
+      target: dev
+    ports:
+      - "5173:5173"
+    volumes:
+      # Edit files on the host, Vite hot-reloads inside the container.
+      - ./web:/app
+      # Keep the image's node_modules rather than the host's (if any).
+      - /app/node_modules
